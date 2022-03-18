@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        
+        <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    </head>
+    <body>
+       <a-scene>
+  <a-assets>
+    <a-asset-item id="casaobj" src="Casa/House01.obj"></a-asset-item>
+    <a-asset-item id="casamtl" src="Casa/House01.mtl"></a-asset-item>
+  </a-assets>
+
+ 
+  <a-entity obj-model="obj:#casaobj; mtl:#casamtl" material="src: Casa/suc-grass-009.jpg"></a-entity>
+<!--
+            <a-entity obj-model="obj: #catapult-o" material="src: imagenes/assets/catapulta/textures/plywood_diff_1k.jpg; color:red" 
+                           position="-10 0 50"
+                           rotation="0 -70 0"
+                           scale="0.9 0.9 0.9">
+             </a-entity>
+-->
+</a-scene>
+    </body>
+</html>
