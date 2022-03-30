@@ -1,25 +1,25 @@
+
 <!doctype html>
 <html>
     <head>
-        
-        <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+                <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+       
     </head>
     <body>
        <a-scene>
-  <a-assets>
-    <a-asset-item id="casaobj" src="Casa/House01.obj"></a-asset-item>
-    <a-asset-item id="casamtl" src="Casa/House01.mtl"></a-asset-item>
-  </a-assets>
+           <a-entity 
+          movement-controls="fly: true; speed: 0.3">
+                <a-entity camera
+            position="20 6 0"
+            look-controls wasd-controls></a-entity>
+            </a-entity>
+            <a-asset-item id="casa" src="Casa/scene.gltf"></a-asset-item>  
+
 
  
-  <a-entity obj-model="obj:#casaobj; mtl:#casamtl" material="src: Casa/suc-grass-009.jpg"></a-entity>
-<!--
-            <a-entity obj-model="obj: #catapult-o" material="src: imagenes/assets/catapulta/textures/plywood_diff_1k.jpg; color:red" 
-                           position="-10 0 50"
-                           rotation="0 -70 0"
-                           scale="0.9 0.9 0.9">
-             </a-entity>
--->
-</a-scene>
+            <a-entity gltf-model="#casa"></a-entity>
+
+        </a-scene>
     </body>
 </html>
