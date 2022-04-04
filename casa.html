@@ -17,21 +17,32 @@
             </a-entity>
             <a-asset-item id="casa" src="Casa/scene.gltf"></a-asset-item>  
            <a-asset-item id="bichowapo" src="PersonajesSimpaticos/scary_creature/scene.gltf"></a-asset-item>  
-           <a-asset-item id="mei" src="PersonajesSimpaticos/mei/scene.gltf"></a-asset-item>  
+           <a-asset-item id="person" src="PersonajesSimpaticos/person/scene.gltf"></a-asset-item>  
 
 
             <a-sky src="#sky"></a-sky>
             <a-entity gltf-model="#casa"></a-entity>
            <a-entity gltf-model="#bichowapo" position="28 4.5 -9" animation-mixer="clip: Idle" >
            </a-entity>
-           <a-entity scale="0.01 0.01 0.01"  gltf-model="#mei" position="34 4.5 -15"  >
+           <a-entity rotation="-8 -76 0" gltf-model="#person" position="26.5 5.5 -16" >
+               <!--
                <a-animation attribute="position"
                dur="10000"
                fill="forwards"
-               to="30 4.5 -9"
+               to="28 6.5 -15.5"
                repeat="indefinite">
       </a-animation>
+--> 
            </a-entity>
+           
+           <a-entity rotation="-10 -110 0" gltf-model="#person" position="30 5.5 -13" >
+               
+           </a-entity>
+           
+           <a-entity rotation="-10 -110 0" gltf-model="#person" position="26 5.5 -13" >
+               
+           </a-entity>
+           
 
         </a-scene>
     </body>
