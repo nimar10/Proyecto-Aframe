@@ -19,7 +19,9 @@
            <!--Personajes-->
            <a-asset-item id="bichowapo" src="PersonajesSimpaticos/scary_creature/scene.gltf"></a-asset-item>  
            <a-asset-item id="person" src="PersonajesSimpaticos/person/scene.gltf"></a-asset-item>  
-           <a-asset-item id="monstruo" src="PersonajesSimpaticos/the_deadly_spawn_animation/scene.gltf"></a-asset-item> 
+           <a-asset-item id="monstruo" src="PersonajesSimpaticos/the_deadly_spawn_animation/scene.gltf"></a-asset-item>
+           <a-asset-item id="shrek" src="PersonajesSimpaticos/shrek_dancing/scene.gltf"></a-asset-item>
+                         s
 
            <!--Traer escenario-->
             <a-sky src="#sky"></a-sky>
@@ -77,6 +79,32 @@
            <!--Monstruo fusionado-->
            <a-entity rotation="-10 -110 0" gltf-model="#monstruo" position="26 5.5 -13" scale="0.5 0.5 0.5">
            </a-entity>
+           
+           <!-- Shrek bailarin -->
+           
+            <a-entity  gltf-model="#shrek" position="35.5 4.5 -23"
+                animation="property:position;
+                    dur:20000;
+                    fill:forwards;
+                    to:35.5 4.5 -10"
+                    animation__2="property:position;
+                    dur:20000;
+                      delay:21000;
+                    fill:forwards;
+                    to:35.5 4.5 -23"
+<!--
+                      animation__3="property:rotation;
+                      dur:1000;
+                      delay:20000;
+                      to:0 360 0"
+-->
+                    >
+                 
+              
+               
+           </a-entity>
+           
+           
            
         </a-scene>
     </body>
