@@ -1,47 +1,38 @@
 
 <!doctype html>
-<html>
-    <head>
-        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-                <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
-       
+    <html>
+        <head>
+            <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+            <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
     </head>
     <body>
        <a-scene>
+           <!--Camara-->
+           <a-entity  movement-controls="fly: true; speed: 0.3">
+           <a-entity camera position="20 6 0" look-controls wasd-controls></a-entity>
+           </a-entity>
+           
+           <!--Escenario-->
            <img id="sky" src="Background/cielo.jpg">
-           <a-entity 
-          movement-controls="fly: true; speed: 0.3">
-                <a-entity camera
-            position="20 6 0"
-            look-controls wasd-controls></a-entity>
-            </a-entity>
-            <a-asset-item id="casa" src="Casa/scene.gltf"></a-asset-item>  
+           <a-asset-item id="casa" src="Casa/scene.gltf"></a-asset-item>  
+           
+           <!--Personajes-->
            <a-asset-item id="bichowapo" src="PersonajesSimpaticos/scary_creature/scene.gltf"></a-asset-item>  
            <a-asset-item id="person" src="PersonajesSimpaticos/person/scene.gltf"></a-asset-item>  
 
-
+           <!--Traer escenario-->
             <a-sky src="#sky"></a-sky>
             <a-entity gltf-model="#casa"></a-entity>
-           <a-entity gltf-model="#bichowapo" position="28 4.5 -9" animation-mixer="clip: Idle" >
-           </a-entity>
-           <a-entity rotation="-8 -76 0" gltf-model="#person" position="26.5 5.5 -16" >
-               <!--
-               <a-animation attribute="position"
-               dur="10000"
-               fill="forwards"
-               to="28 6.5 -15.5"
-               repeat="indefinite">
-      </a-animation>
---> 
-           </a-entity>
            
-           <a-entity rotation="-10 -110 0" gltf-model="#person" position="30 5.5 -13" >
-               
-           </a-entity>
            
-           <a-entity rotation="-10 -110 0" gltf-model="#person" position="26 5.5 -13" >
-               
-           </a-entity>
+           <!--Bicho ventana-->
+           <a-entity gltf-model="#bichowapo" position="28 4.5 -9" animation-mixer="clip: Idle"> </a-entity>
+           
+           
+           <!--Hombres con traje-->
+           <a-entity rotation="-10 -80 0" gltf-model="#person" position="26.5 5.5 -16" ></a-entity>
+           <a-entity rotation="-10 -60 0" gltf-model="#person" position="26 5.5 -19" ></a-entity>
+           <a-entity rotation="-10 -110 0" gltf-model="#person" position="26 5.5 -13" ></a-entity>
            
 
         </a-scene>
