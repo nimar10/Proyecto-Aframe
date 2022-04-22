@@ -28,7 +28,7 @@
         
        <a-scene>
                 <a-assets>
-                <audio id="audio-1" src="shrek.mp3" preload="auto"></audio>       	      
+                <audio id="audio-1" src="audio/shrek.mp3" preload="auto"></audio>       	      
                 </a-assets>
            <!--Camara-->
            <a-entity position="20 6 0">
@@ -46,7 +46,6 @@
            <a-asset-item id="person" src="PersonajesSimpaticos/person/scene.gltf"></a-asset-item>  
            <a-asset-item id="monstruo" src="PersonajesSimpaticos/the_deadly_spawn_animation/scene.gltf"></a-asset-item>
            <a-asset-item id="shrek" src="PersonajesSimpaticos/shrek_dancing/scene.gltf"></a-asset-item>
-                         s
 
            <!--Traer escenario-->
             <a-sky src="#sky"></a-sky>
@@ -108,8 +107,8 @@
            <!-- Shrek bailarin -->
            
 <!--
-            <a-entity id="shrek" gltf-model="#shrek" position="35.5 4.5 -23" sound="rc: #audio1">
->
+            <a-entity id="yellow" gltf-model="#shrek" position="35.5 4.5 -23" sound="src: #audio1; volume: 2">
+>           
                 <a-animation attribute="rotation"
                     dur="1000"
                     fill="forwards"
@@ -118,15 +117,20 @@
                 </a-entity>
            <a-sphere color="#00AA00" radius="0.25" position="36 4.5 -23" play></a-sphere> 
 -->
-           <a-box id="yellow" color="#FFAA00" position="35.5 4.5 -23" sound="rc: #audio-1; volume: 2">
+           <a-entity gltf-model="#shrek" position="35.5 4.5 -23">
+>           
+                <a-animation attribute="rotation"
+                    dur="1000"
+                    fill="forwards"
+                    to="0 360 0"
+                    repeat="indefinite"/>
+           </a-entity>
+           <a-box id="yellow" color="#FFAA00" position="35.5 6 -23" sound="src: #audio-1; volume: 2" scale="0.5 0.5 0.5">
 			<!-- Play-->
-			<a-sphere color="#00AA00" radius="0.25" position="-0.5 1 0" play></a-sphere> 
+			<a-sphere color="#00AA00" radius="0.25" position="-1 1 0" play></a-sphere> 
 			<!-- Stop-->
-			<a-sphere color="#AA0000" radius="0.25" position="0.5 1 0" stop></a-sphere>
-        </a-box>                 
-        <a-entity
-        	   sound="src: #audio-2; autoplay: true; loop: true; positional: false">
-        </a-entity>               
+			<a-sphere color="#AA0000" radius="0.25" position="1 1 0" stop></a-sphere>
+        </a-box>                         
             
 <!--
                     animation__2="property:position;
@@ -141,7 +145,7 @@
                       delay:20000;
                       to:0 360 0"
 -->
-                    >
+                    
                  
               
                
