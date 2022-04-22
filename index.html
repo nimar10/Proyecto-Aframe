@@ -2,13 +2,13 @@
 <!doctype html>
  <html>
      <head>
-        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
         <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
 <!--           <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>-->
     <script>
 		AFRAME.registerComponent('play', {
 			init: function () {
-				var myEl = document.querySelector('#yellow');
+				var myEl = document.querySelector('#shrek');
 				this.el.addEventListener('click', function () {
 					myEl.components.sound.playSound();
 				});
@@ -16,7 +16,7 @@
 		});
 		AFRAME.registerComponent('stop', {
 			init: function () {
-				var myEl = document.querySelector('#yellow');
+				var myEl = document.querySelector('#shrek');
 				this.el.addEventListener('click', function () {
 					myEl.components.sound.stopSound();
 				});
@@ -28,14 +28,12 @@
         
        <a-scene>
                 <a-assets>
-                <audio id="audio-1" src="shrek.mp3" preload="auto"></audio>       	      
+                <audio id="audio1" src="audio/shrek.mp3" preload="auto"></audio>        	      
                 </a-assets>
            <!--Camara-->
-           <a-entity position="20 6 0">
-			<a-camera>
-				<a-cursor></a-cursor>
-			</a-camera>
-		</a-entity>
+           <a-entity  movement-controls="fly: true; speed: 0.3">
+               <a-entity camera position="20 6 0" look-controls wasd-controls><a-cursor></a-cursor></a-entity>
+           </a-entity>
            
            <!--Escenario-->
            <img id="sky" src="Background/cielo.jpg">
@@ -107,26 +105,19 @@
            
            <!-- Shrek bailarin -->
            
-<!--
-            <a-entity id="shrek" gltf-model="#shrek" position="35.5 4.5 -23" sound="rc: #audio1">
+            <a-entity  sound="src: #audio1" gltf-model="#shrek" position="35.5 4.5 -23"sound="src: #audio1; autoplay: true; loop: true; positional: false" play>
 >
                 <a-animation attribute="rotation"
-                    dur="1000"
-                    fill="forwards"
-                    to="0 360 0"
-                    repeat="indefinite"/>
-                </a-entity>
-           <a-sphere color="#00AA00" radius="0.25" position="36 4.5 -23" play></a-sphere> 
--->
-           <a-box id="yellow" color="#FFAA00" position="35.5 4.5 -23" sound="rc: #audio-1; volume: 2">
-			<!-- Play-->
-			<a-sphere color="#00AA00" radius="0.25" position="-0.5 1 0" play></a-sphere> 
-			<!-- Stop-->
-			<a-sphere color="#AA0000" radius="0.25" position="0.5 1 0" stop></a-sphere>
-        </a-box>                 
-        <a-entity
-        	   sound="src: #audio-2; autoplay: true; loop: true; positional: false">
-        </a-entity>               
+               dur="1000"
+               fill="forwards"
+               to="0 360 0"
+               repeat="indefinite"
+                             
+                             />
+                
+                  
+                  
+                    </a-entity>
             
 <!--
                     animation__2="property:position;
