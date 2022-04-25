@@ -3,11 +3,13 @@
  <html>
      <head>
          <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-        <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
-        <script>        
+         <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+         <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+         <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+         <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+         <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+         <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.1/dist/aframe-extras.min.js" ></script>
+         <script>        
             AFRAME.registerComponent('play', {
 			init: function () {
 				var myEl = document.querySelector('#eructo');
@@ -15,7 +17,8 @@
 					myEl.components.sound.playSound();
 				});
 			}
-		});
+		 });
+            
          </script>
     </head>
     <body>
@@ -24,9 +27,8 @@
                 <audio id="audio-1" src="audio/shrekmejor.mp3" preload="auto"></audio>       	
                <!--Personajes-->
                 <a-asset-item id="bichowapo" src="PersonajesSimpaticos/scary_creature/scene.gltf"></a-asset-item>  
-                <a-asset-item id="person" src="PersonajesSimpaticos/person/scene.gltf"></a-asset-item>  
-                <a-asset-item id="monstruo" src="PersonajesSimpaticos/the_deadly_spawn_animation/scene.gltf"></a-asset-item>
                 <a-asset-item id="shrek" src="PersonajesSimpaticos/shrek_dancing/scene.gltf"></a-asset-item>
+               <a-asset-item id="bird" response-type="arraybuffer" src="https://cdn.glitch.com/1061d524-9d0f-4b25-97fd-48ebd0fce63c%2Fsceneglb.glb?1546534633849"></a-asset-item>
                <!--Escenario-->
                 <img id="sky" src="Background/cielo.jpg">
                 <a-asset-item id="casa" src="Casa/scene.gltf"></a-asset-item>  
@@ -43,16 +45,20 @@
            <a-entity gltf-model="#casa" static-body></a-entity>
            
            <!-- Monstruo acechador -->
-           <a-entity gltf-model="#bichowapo" position="28 4.5 -9"
-                     animation="property: opacity;
-                           from: 1;
-                           to: 0;
-                           loop: true;
-                           dir: alternate;
-                           dur: 1500">
+           <a-entity gltf-model="#bichowapo" position="28 4.5 -9" animation-mixer="clip:idle; loop:2; timeScale: 5; crossFadeDuration: 1"
+                      event-set__enter="_event: mouseenter; _target: #cylinderText; visible: true"
+                event-set__leave="_event: mouseleave; _target: #cylinderText; visible: false">
+                <a-text id="cylinderText" value="El grito" align="center" color="#FFF" visible="false" position="0 1 2" geometry="primitive: plane; width: 1.75" material="color: #333"></a-text>
            </a-entity>
            
-           <a-box position="35.5 6 -23" rotation="0 45 0" color="#4CC3D9" dynamic-body="linearDamping: 0.05; mass: 1"></a-box>
+           <!-- Paloma de fuego volando -->
+           <a-entity gltf-model="#bird" scale="0.001 0.001 0.001" animation-mixer="clip:Take 001; loop:Infinite"
+                     animation="property: position;
+                          from: 28 12 -9;
+                          to: 40 12 -9;
+                          loop: true;
+                          dir: alternate;
+                          dur: 5000;"></a-entity>
            
            <!-- Shrek bailarin -->
             <a-entity id="eructo" gltf-model="#shrek"
@@ -75,7 +81,7 @@
            </a-entity>
            
           <!-- Texto de bienvenida -->
-		  <a-entity position="22 7.5 -7.9" scale="12 12 12"
+		  <a-entity visible="true" id="texto" position="22 7.5 -7.9" scale="12 12 12"
 				  text="value: La Mansion Playboy;
 				  		color: #212121;
 				  		align: center;
